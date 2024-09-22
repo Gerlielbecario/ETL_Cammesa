@@ -29,7 +29,7 @@ Las mismas se encuentran en un archivo .json:
     sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
  ```
 
-### Documentacion de la entrega final
+### Inicio proyecto
 
  - Una vez se halla generado la carpeta bin ejecutaremos en la terminal
  ```bash
@@ -46,9 +46,19 @@ projecto funcione.
 
 ![imagen1](imagenes/env.png)
 
+- Una vez definidas las variables de entorno, podemos iniciar nuestros contenedores.
+
+```bash
+    ./bin/task start_project
+ ```
+
 Comenzara a inicializarse los contenedores, esto puede demorar unos minutos...
 
-Una vez inicializado iremos a Puertos
+- Una vez inicializado iremos a Puertos y en direccion reenviada abrir en el navegador...
+
+![imagen2](imagenes/puerto.png)
+
+
 
 
 ### SCHEMA REALIZADO E INESTADO
