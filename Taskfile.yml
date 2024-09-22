@@ -1,0 +1,50 @@
+version: '3'
+
+# silent: true
+
+env:
+  ROOT_PROJECT: ./etl_cammesa
+  DOCKER: docker-compose.yaml
+
+tasks:
+  pre_project:
+    cmds:
+      - echo "CREATE THE AIRLFOW AND THE STORAGE DIRS"
+      - echo -e "AIRFLOW_UID=$(id -u)" > $ROOT_PROJECT/.env
+      - |
+        cat <<EOF >> $ROOT_PROJECT/.env
+        REDSHIFT_URL= 
+        REDSHIFT_USER= 
+        REDSHIFT_PWD=  
+        REDSHIFT_PORT= 
+        REDSHIFT_DB= 
+        REDSHIFT_SCHEMA= 
+        EMAIL=
+        EMAIL_PASSWORD= 
+        SMTP_HOST=
+        SMTP_STARTTLS= 
+        SMTP_SSL=
+        SMTP_USER= 
+        SMTP_PASSWORD=
+        SMTP_PORT= 
+        SMTP_MAIL_FROM= 
+        EOF
+      - mkdir -p $ROOT_PROJECT/{tablaprocesada,tablasinprocesar,dags,logs,plugins,config}
+      - tree -L 2 $ROOT_PROJECT
+
+  start_project:
+
+      - sudo docker compose -f $ROOT_PROJECT/$DOCKER up airflow-init --build
+      - sudo docker compose -f $ROOT_PROJECT/$DOCKER up -d --build
+      - sudo docker container ls -a
+
+
+  down_project:
+      - sudo docker compose -f $ROOT_PROJECT/$DOCKER down
+
+  cleanup: 
+    cmds:
+      - rm -rf  $ROOT_PROJECT/{tablaprocesada,tablasinprocesar,logs,plugins,config}
+      - rm -f   $ROOT_PROJECT/.env
+      - rm -rf  $ROOT_PROJECT/dags/*pycache*
+      - rm -rf  $ROOT_PROJECT/dags/*/*pycache*
