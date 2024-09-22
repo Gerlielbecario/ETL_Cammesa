@@ -9,15 +9,14 @@ la demanda.
 Vamos a extraer datos de algunas regiones del sistema de interconexion argentino (SADI) que nos
 resultan de interes. 
 
- ```bash
-    425 Provincia de Buenos Aires
-    111 Patagonia 
-    419 Noroeste Argentino
- ```
-Las mismas se encuentran en:
+- 425 Provincia de Buenos Aires
+- 111 Patagonia 
+- 419 Noroeste Argentino
+ 
+Las mismas se encuentran en un archivo .json:
 
  ```bash
-    id_regiones.json
+    etl_cammesa/id_regiones.json
  ```
 
 
@@ -36,7 +35,7 @@ Las mismas se encuentran en:
  ```bash
     ./bin/task pre_project
  ```
-![Descripción de la imagen](/imagenes/pre_project.png)
+![imagen1](imagenes/pre_project.png)
 
 De esta manera habremos generado las carpetas y archivos necesarios para que nuestro
 projecto funcione. 
