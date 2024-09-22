@@ -35,15 +35,16 @@ Las mismas se encuentran en un archivo .json:
  ```bash
     ./bin/task pre_project
  ```
-![imagen1](imagenes/pre_project.png)
 
 De esta manera habremos generado las carpetas y archivos necesarios para que nuestro
 projecto funcione. 
 
-
- ```bash
-    ./bin/task start_project
+- Dentro de la siguiente ubicacion, se debe completar las variables.
+```bash
+    etl_cammesa/.env
  ```
+
+![imagen1](imagenes/env.png)
 
 Comenzara a inicializarse los contenedores, esto puede demorar unos minutos...
 
